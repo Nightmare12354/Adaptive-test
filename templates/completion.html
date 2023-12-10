@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Completed</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Completed</h1>
+        </header>
+        <div id="completion-message">
+            {% if score >= 7 %}
+                <p>- ระดับยอดเยี่ยม -</p>
+            {% elif score >= 4 %}
+                <p>- ระดับตามมาตรฐาน -</p>
+            {% else %}
+                <p>- ระดับอ่อน -</p>
+            {% endif %}
+            <!-- <p>คะแนนของคุณ: {{ score }}</p> -->
+            <form action="/start" method="post">
+                <button type="submit">เริ่มทำใหม่</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

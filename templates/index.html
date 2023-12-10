@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Math Quiz</h1>
+        </header>
+        <div id="quiz-container">
+            <p id="question">Question {{ question_number }}: {{ question }}</p>
+            <form method="post" id="quiz-form">
+                <input type="number" name="answer" id="answer" placeholder="Enter your answer" required>
+                <button type="submit">Submit</button>
+            </form>
+            <div id="score-container">
+                <!-- <p id="score">Score: {{ score }}</p> -->
+                <p id="difficulty">Difficulty: {{ difficulty }}</p>
+            </div>
+            <form action="/start" method="post">
+                <button type="submit">เริ่มทำใหม่</button>
+            </form>
+        </div>        
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
